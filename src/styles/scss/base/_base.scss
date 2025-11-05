@@ -1,0 +1,40 @@
+html,
+body {
+  height: 100%;
+}
+
+.page-wrapper {
+  min-height: 100%;
+  min-height: 100dvh;
+  display: flex;
+  flex-direction: column;
+  color: var(--color-base);
+  background-color: var(--wrapper-bgc);
+}
+
+.wrapper {
+  max-width: var(--container-width);
+  position: relative;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.container {
+  max-width: calc(var(--container-width) + 2 * var(--container-padding));
+  padding-left: var(--container-padding);
+  padding-right: var(--container-padding);
+  margin: 0 auto;
+}
+
+.main {
+  flex-grow: 1;
+}
+
+body,
+input,
+button {
+  font-family: var(--font-base);
+  font-size: var(--font-size-base);
+  font-weight: var(--font-weight-base);
+  line-height: var(--line-height-base);
+}

@@ -1,0 +1,29 @@
+.page-wrapper.night {
+  transition: all 0.3s ease;
+  --wrapper-bgc: #202c36;
+  --items-bgc: #2B3844;
+  --color-base: #ffffff;
+  --color-input: #ffffff;
+
+  .filter__trigger,#input-cancel {
+    img {
+      transition: all 0.3s ease;
+      filter: brightness(0) invert(1);
+    }
+  }
+  .modal {
+    .loader {
+      border: 6px solid var(--items-bgc);
+      border-top: 6px solid var(--color-base);
+    }
+
+    &__background {
+      background-color: rgba(255, 255, 255, 0.1);
+    }
+  }
+  .modal-country__close {
+    img {
+      filter: brightness(100) invert(1);
+    }
+  }
+}

@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>countries_app</title>
+</head>
+
+<body>
+<div class="page-wrapper">
+
+	<header class="header">
+		<div class="header__inner container">
+			<h1 class="header__title">
+				<a href="/">
+					Where in the world?
+				</a>
+			</h1>
+			<button class="header__night-mode night-mode">
+				<div class="night-mode__icon">
+					<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">
+						<path fill-rule="evenodd" clip-rule="evenodd"
+							d="M13.5532 13.815C9.66857 13.815 6.51929 10.9278 6.51929 7.36821C6.51929 6.0253 6.96679 4.78158 7.73143 3.75C4.69036 4.69515 2.5 7.33122 2.5 10.4381C2.5 14.3385 5.94929 17.5 10.2036 17.5C13.5929 17.5 16.4696 15.4932 17.5 12.7045C16.375 13.4048 15.0161 13.815 13.5532 13.815Z"
+							fill="white" stroke="currentColor" stroke-width="1.25" />
+					</svg>
+				</div>
+				<div class="night-mode__text">
+					Light Mode
+				</div>
+			</button>
+		</div>
+	</header>
+
+
+	<main class="main">
+
+		<section class="main__features features">
+			<div class="features__inner container">
+				<div class="features__input active">
+					<label for="country-name">
+						<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 18 18" fill="currentColor">
+							<path fill-rule="evenodd" clip-rule="evenodd"
+								d="M12.5 11H11.7L11.4 10.7C12.4 9.6 13 8.1 13 6.5C13 2.9 10.1 0 6.5 0C2.9 0 0 2.9 0 6.5C0 10.1 2.9 13 6.5 13C8.1 13 9.6 12.4 10.7 11.4L11 11.7V12.5L16 17.5L17.5 16L12.5 11ZM6.5 11C4 11 2 9 2 6.5C2 4 4 2 6.5 2C9 2 11 4 11 6.5C11 9 9 11 6.5 11Z"
+								fill="currentColor" />
+						</svg>
+					</label>
+					<input type="text" id="country-name">
+					<button id="input-cancel">
+						<img src="./src/assets/icons/input-cancel.svg" alt="cancel-icon">
+					</button>
+				</div>
+				<div class="features__filter filter">
+					<button class="filter__trigger">
+						<div class="filter__value">Filter by Region</div>
+						<img src="./src/assets/icons/arrow-down.svg" id="drop-down" alt="arrow-down-icon">
+						<img class="hide" src="./src/assets/icons/cancel-icon.svg" id="cancel-filter" alt="cancel-icon">
+					</button>
+
+					<div class="filter__options">
+						<div class="filter__option" data-region="Africa">Africa</div>
+						<div class="filter__option" data-region="America">America</div>
+						<div class="filter__option" data-region="Asia">Asia</div>
+						<div class="filter__option" data-region="Europe">Europe</div>
+						<div class="filter__option" data-region="Oceania">Oceania</div>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<section class="main__countries countries">
+			<div class="countries__inner container">
+
+			</div>
+		</section>
+
+	</main>
+
+	<div class="modal">
+		<div class="modal__background"></div>
+		=
+		<div class="modal__loader loader">
+		</div>
+	</div>
+
+	<div class="modal-country">
+		<div class="modal-country__background"></div>
+		<div class="modal-country__content content-modal">
+			<div class="content-modal__inner">
+				<div class="content-modal__flag">
+					<img src="./src/assets/images/placeholder.jpg" alt="placeholder-image">
+				</div>
+				<div class="content-modal__info">
+
+				</div>
+			</div>
+			<div class="modal-country__actions">
+				<button class="modal-country__close">
+					<img src="./src/assets/icons/cancel-icon.svg" alt="cancel-icon">
+				</button>
+			</div>
+		</div>
+	</div>
+
+</div>
+
+<script type="module" src="/main.js"></script>
+
+</body>
+</html>

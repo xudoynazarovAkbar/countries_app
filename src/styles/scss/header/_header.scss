@@ -1,0 +1,33 @@
+.header {
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.06);
+  background-color: var(--items-bgc);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+
+  &__inner {
+
+    min-height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  &__title {
+    font-size: clamp(14px, 3.8vw, 24px);
+    font-weight: 800;
+    line-height: normal;
+  }
+}
+
+.night-mode {
+  display: flex;
+  column-gap: 10px;
+  align-items: center;
+  color: var(--color-base);
+
+  &__text {
+    display: flex;
+  }
+}
