@@ -1,11 +1,11 @@
-// _____________________ Home Scroll _______________________
+//_____________________Home Scroll_______________________
 const homeLink = document.querySelector('a[href="/"]');
 homeLink.addEventListener('click', (e) => {
 	e.preventDefault();
-	window.scrollTo({ top: 0, behavior: 'smooth' });
+	window.scrollTo({top: 0, behavior: 'smooth'});
 });
 
-// _____________________ Night Mode _______________________
+//_____________________Night Mode_______________________
 const pageWrapper = document.querySelector('.page-wrapper');
 const nightModeBtn = document.querySelector('.header__night-mode');
 const nightModeText = document.querySelector('.night-mode__text');
@@ -15,14 +15,14 @@ nightModeBtn.addEventListener('click', () => {
 	nightModeText.textContent = pageWrapper.classList.contains('night') ? 'Dark Mode' : 'Light Mode';
 });
 
-// _____________________ State Variables _______________________
-let filteredRegion = '/all';  // current region filter
-let searchQuery = '';          // current search input
-let searchTimeout = null;
+//_____________________States_______________________
+let filteredRegion = '/all'
+let searchQuery = ''
+let searchTimeout = null
 
 const countriesSection = document.querySelector('.countries__inner');
 
-// _____________________ Search Input _______________________
+//_____________________Search Input_______________________
 const searchInput = document.getElementById('country-name');
 const inputCancelBtn = document.getElementById('input-cancel');
 
@@ -49,7 +49,7 @@ inputCancelBtn.addEventListener('click', () => {
 	updateFilteredData();
 });
 
-// _____________________ Filter _______________________
+//_____________________Filter_______________________
 const filterTrigger = document.querySelector(".filter__trigger");
 const filterOptions = document.querySelector('.filter__options');
 const filterValue = document.querySelector(".filter__trigger .filter__value");
@@ -87,28 +87,22 @@ document.addEventListener("click", (e) => {
 	}
 });
 
-// _____________________ Modal _______________________
+//_____________________Modal_______________________
 const modal = document.querySelector('.modal');
 const modalCountry = document.querySelector('.modal-country');
 
-// _____________________ Update Filtered Data _______________________
+//_____________________ Update Filtered Data _______________________
 function updateFilteredData() {
-	if (filteredRegion !== '/all') {
-		fetchData(filteredRegion, searchQuery);
-	} else if (searchQuery) {
-		fetchData(`/name/${searchQuery}`);
-	} else {
-		fetchData('/all');
-	}
+	fetchData('/all', searchQuery);
 }
 
-// _____________________ Fetch Data _______________________
+//_____________________Fetch Data_______________________
 function fetchData(url, searchTerm = '') {
 	const apiBase = "https://restcountries.com/v3.1";
 	const fields = "fields=name,flags,population,region,subregion,capital,tld,borders,languages,currencies";
 
 	countriesSection.innerHTML = '';
-	modal.classList.add('open'); // loader
+	modal.classList.add('open')
 
 	fetch(`${apiBase}${url}?${fields}`)
 		.then(response => {
@@ -120,9 +114,11 @@ function fetchData(url, searchTerm = '') {
 			if (!data.length) throw new Error();
 			countriesSection.style.display = 'grid';
 
-			if (searchTerm) {
-				data = data.filter(c => c.name?.common.toLowerCase().includes(searchTerm.toLowerCase()));
-			}
+			data = data.filter(c => {
+				const matchesRegion = filteredRegion === '/all' || c.region === filteredRegion.replace('/region/', '');
+				const matchesSearch = !searchTerm || c.name?.common.toLowerCase().includes(searchTerm.toLowerCase());
+				return matchesRegion && matchesSearch;
+			});
 
 			if (!data.length) {
 				countriesSection.innerHTML = `<h2 class="countries__error">No results were found</h2>`;
@@ -139,7 +135,7 @@ function fetchData(url, searchTerm = '') {
 		});
 }
 
-// _____________________ Render Helpers _______________________
+//_____________________Render Helpers_______________________
 function renderObject(country) {
 	return {
 		flag: country.flags?.png || '',
@@ -183,7 +179,7 @@ function renderCountriesItem(obj) {
 	countriesSection.append(item);
 }
 
-// _____________________ Render Modal _______________________
+//_____________________Render Modal_______________________
 function renderModal(obj) {
 	const flagEl = modalCountry.querySelector('.content-modal__flag');
 	const infoEl = modalCountry.querySelector('.content-modal__info');
@@ -214,7 +210,7 @@ function renderModal(obj) {
   `;
 }
 
-// _____________________ Country Click & Modal _______________________
+//_____________________Modal country_______________________
 countriesSection.addEventListener('click', (e) => {
 	const card = e.target.closest('.countries__item');
 	if (!card) return;

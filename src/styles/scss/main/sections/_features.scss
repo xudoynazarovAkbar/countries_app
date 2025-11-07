@@ -16,7 +16,7 @@
 
   &__input {
     position: relative;
-    transition: all 0.3s ease;
+    transition: background, color 0.3s ease;
     max-width: 480px;
     width: 100%;
     border-radius: 5px;
@@ -37,7 +37,7 @@
       transform: translateY(-50%);
       width: 15px;
       height: 15px;
-      transition: all 0.3s ease;
+      transition: opacity, visibility 0.3s ease;
 
       img {
         width: 100%;
@@ -85,7 +85,7 @@
   display: inline-block;
 
   &__trigger {
-    transition: all 0.3s ease;
+    transition: opacity, visibility 0.3s ease;
     color: var(--color-base);
     border-radius: 5px;
     background: var(--items-bgc);
@@ -102,7 +102,7 @@
       height: 9px;
       opacity: 1;
       visibility: visible;
-      transition: all 0.3s ease;
+      transition: opacity, visibility 0.3s ease;
     }
 
     img.hide {

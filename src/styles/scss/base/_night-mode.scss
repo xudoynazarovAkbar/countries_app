@@ -7,7 +7,7 @@
 
   .filter__trigger,#input-cancel {
     img {
-      transition: all 0.3s ease;
+      transition: filter 0.3s ease;
       filter: brightness(0) invert(1);
     }
   }
